@@ -11,32 +11,32 @@ Post.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        },
-        title: {
+          },
+          title: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        post_url: {
+          },
+          post_url: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isURL: true
+              isURL: true
             }
-        },
-        user_id: {
+          },
+          user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
-                key: 'id'
+              model: 'user',
+              key: 'id'
             }
+          }
+        },
+        {
+          sequelize,
+          freezeTableName: true,
+          underscored: true,
+          modelName: 'post'
         }
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'post'
-    }
 );
 
 module.exports = Post;
